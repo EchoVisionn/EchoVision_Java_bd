@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #fdf4ff;
+  --text-color: #1a1a1a;
+  --primary-purple: #a855f7;
+  --primary-pink: #d946ef;
+  --font-base-size: 16px;
+  --header-bg: rgba(243, 237, 247, 0.8);
+  
+  --wave-pink: #ff78dc;
+  --wave-blue: #4facfe;
+}
+
+body.high-contrast {
+  --bg-color: #000;
+  --text-color: #fff;
+  --primary-purple: #ff0;
+  --header-bg: #111;
+  --wave-pink: #ff00ff;
+  --wave-blue: #00ffff;
+}
+
+body.large-font {
+  --font-base-size: 20px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: var(--font-base-size);
+  overflow-x: hidden;
+}
+
+/* --- FUNDO ANIMADO COMPARTILHADO --- */
+.wave-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: var(--bg-color);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.organic-waves {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.wave {
+  fill: none;
+  stroke-width: 2px;
+  opacity: 0.5;
+  animation: waveMove 10s linear infinite alternate;
+}
+
+.path-1 { stroke: var(--wave-pink); animation-duration: 15s; }
+.path-2 { stroke: var(--wave-blue); animation-duration: 12s; animation-delay: -2s; }
+.path-3 { stroke: var(--primary-purple); stroke-width: 1px; animation-duration: 18s; }
+
+@keyframes waveMove {
+  from { transform: translateX(0) scaleY(1); }
+  to { transform: translateX(-20%) scaleY(1.1); }
+}
+
+/* Brilho extra nas ondas dinâmicas quando o Dark Mode estiver ativo */
+body.dark-mode .wave {
+  opacity: 0.85;
+  stroke-width: 2.5px; /* Deixa a linha da onda ligeiramente mais marcada no escuro */
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.4)); /* Dá um efeito de brilho neon sutil */
+}
+
+/* Garante que o body inteiro mude e sobreponha cores estáticas */
+body.dark-mode {
+  background-color: #0b0914 !important;
+  color: #f5f3f7 !important;
+  --bg-color: #0b0914;
+  --text-color: #f5f3f7;
+  --header-bg: rgba(15, 12, 24, 0.85);
+  --card-bg: rgba(22, 18, 36, 0.7);
+  --card-border: rgba(168, 85, 247, 0.15);
+}
+
+/* Remove qualquer fundo branco fixo na área interna do layout */
+body.dark-mode .home-container,
+body.dark-mode main {
+  background: transparent !important;
+}

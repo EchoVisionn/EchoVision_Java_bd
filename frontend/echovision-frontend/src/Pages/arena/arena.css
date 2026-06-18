@@ -1,0 +1,200 @@
+/* ── ARENA PAGE ──────────────────────────────────── */
+.arena-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  padding: 60px 20px;
+  margin: 0 auto;
+}
+
+.arena-section {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.arena-section h1,
+.arena-section h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #1a0933;
+}
+
+.subtitle {
+  color: #5d5470;
+  margin-bottom: 30px;
+}
+
+/* LIVE CARD */
+.card-live {
+  background: white;
+  max-width: 650px;
+  margin: 0 auto;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(36, 19, 71, 0.12);
+  text-align: left;
+}
+
+.card-live-header {
+  background-color: #7637aa;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.escudo-placeholder {
+  width: 65px;
+  height: 65px;
+}
+
+.escudo-placeholder img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+
+.card-live-body {
+  padding: 30px;
+}
+
+.card-live-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.card-live-body p {
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* GRID */
+.arena-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* ARENA CARD */
+.card-arena {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card-arena:hover { transform: translateY(-6px); }
+
+.card-arena-thumb {
+  height: 190px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.card-arena-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.card-arena-info {
+  padding: 22px;
+}
+
+.card-arena-info h4 {
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card-arena-info .campeonato {
+  font-size: 0.75rem;
+  color: var(--primary-purple);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.card-arena-action {
+  padding: 0 22px 22px 22px;
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+  text-decoration: none;
+  width: 100%;
+  background-color: #7637aa;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.btn-primary:hover { background-color: #441d64; }
+
+/* BACK BUTTON */
+.btn-voltar {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #51486b;
+  border: 2px solid rgba(140, 90, 180, 0.3);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.btn-voltar:hover {
+  background: linear-gradient(135deg, #8e2de2, #ff4ecd);
+  color: white;
+  border-color: transparent;
+  transform: translateX(-4px);
+}
+
+/* VIDEO */
+.videoplayer {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: block;
+  margin: 40px auto;
+}
+
+@media (max-width: 768px) {
+  .arena-grid { grid-template-columns: 1fr; }
+  .arena-section h1, .arena-section h2 { font-size: 1.7rem; }
+}

@@ -1,0 +1,84 @@
+/* Nova estilização para o botão de voltar limpo */
+.btn-back-clean {
+  background: none; /* Remove o fundo */
+  border: none; /* Remove a borda padrão */
+  color: #a78bfa; /* Cor roxa/violeta para combinar com o tema */
+  font-size: 1.2rem; /* Tamanho do ícone */
+  cursor: pointer;
+  position: absolute; /* Posiciona absolutamente dentro do container */
+  top: 20px; /* Distância do topo do container */
+  left: 20px; /* Distância da esquerda do container */
+  padding: 5px;
+  transition: color 0.2s ease, transform 0.2s ease; /* Transição suave */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-back-clean:hover {
+  color: #d946ef; /* Muda para rosa no hover */
+  transform: scale(1.1); /* Dá um pequeno zoom no hover */
+}
+
+/* Certifique-se de que o contêiner do perfil tenha position: relative */
+.perfil-container {
+  position: relative;
+}
+
+/* CONTAINER DOS TOASTS */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ESTILO DO BALÃO DE AVISO */
+.toast-box {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-left: 5px solid #a78bfa; /* Roxo padrão do time */
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #333;
+  font-family: sans-serif;
+  font-weight: 600;
+  min-width: 300px;
+  
+  /* Animação para deslizar da direita para a esquerda */
+  animation: slideIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Variações de Cores Baseadas no Tipo */
+.toast-box.sucesso {
+  border-left-color: #10b981; /* Verde */
+}
+
+.toast-box.erro {
+  border-left-color: #ef4444; /* Vermelho */
+}
+
+.toast-box i {
+  font-size: 1.3rem;
+}
+
+.toast-box.sucesso i { color: #10b981; }
+.toast-box.erro i { color: #ef4444; }
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
