@@ -93,3 +93,69 @@ nav a:hover {
 .icon-btn:hover { 
   color: var(--primary-purple); 
 }
+
+/* 1. Adiciona uma transição suave para o efeito de brilho não ser brusco */
+nav a {
+  transition: color 0.3s ease, text-shadow 0.3s ease !important;
+}
+
+/* 2. Efeito de brilho roxo sutil para o Tema Claro */
+nav a:hover {
+  color: var(--primary-purple) !important;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.4), 
+               0 0 20px rgba(168, 85, 247, 0.2) !important;
+}
+
+/* 3. Efeito de brilho Neon mais intenso para o Tema Escuro (Dark Mode) */
+body.dark-mode nav a {
+  color: #d1c4e9 !important;
+  transition: color 0.3s ease, text-shadow 0.3s ease !important;
+}
+
+body.dark-mode nav a:hover {
+  color: #c89cff !important; /* Cor roxa mais clara para destacar no escuro */
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.8), 
+               0 0 15px rgba(217, 70, 239, 0.5) !important; /* Combina brilho roxo e rosa */
+}
+
+/* --- INDICATIVO DE PÁGINA ATIVA (NAVLINK ACTIVE) --- */
+
+/* Ajuste base na tag li para conter o alinhamento da linha */
+nav ul li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Quando o link estiver ativo, ele ganha a cor principal e o peso de destaque */
+nav a.active {
+  color: var(--primary-purple) !important;
+  font-weight: 700 !important;
+}
+
+/* Cria a linha indicativa abaixo do link ativo (Modo Claro) */
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-purple), var(--primary-pink));
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.4);
+}
+
+/* --- ADAPTAÇÃO DO INDICATIVO NO MODO ESCURO --- */
+
+/* Cor do texto do link ativo no Dark Mode */
+body.dark-mode nav a.active {
+  color: var(--primary-pink) !important; /* Ganha tom rosa destacado */
+}
+
+/* Linha indicativa com brilho neon no Dark Mode */
+body.dark-mode nav a.active::after {
+  background: linear-gradient(90deg, var(--primary-pink), #4facfe);
+  box-shadow: 0 0 8px rgba(219, 70, 239, 0.8);
+}

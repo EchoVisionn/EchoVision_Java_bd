@@ -97,3 +97,63 @@ body.dark-mode .home-container,
 body.dark-mode main {
   background: transparent !important;
 }
+
+/* 🌟 CORREÇÃO COMPLETA APLICADA DIRETAMENTE NO FLUXO ESCURO GLOBAL 🌟 */
+body.dark-mode .event-card {
+  background: #161224 !important; /* Aplica o cinza escuro arroxeado oficial do seu app */
+  border: 1px solid rgba(168, 85, 247, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Força os títulos h3 de dentro dos cards a manterem o contraste máximo */
+body.dark-mode .event-card .card-body h3 {
+  color: #ffffff !important;
+}
+
+/* Suaviza as descrições secundárias dos cards para tons cinza claros legíveis */
+body.dark-mode .event-card .card-body p,
+body.dark-mode .event-card .price span {
+  color: #bfaecf !important;
+}
+
+/* ─── CORREÇÃO COMPLETA PARA OS CONTAINERS DE FORMULÁRIO (TEMAS DE AUTENTICAÇÃO E B2B) ─── */
+
+/* 1. Altera o container cinza claro transparente para um roxo bem escuro e visível */
+body.dark-mode .login-container {
+  background: rgba(22, 18, 36, 0.85) !important; /* Cor oficial de cards do index.css com opacidade */
+  border: 1px solid rgba(168, 85, 247, 0.3) !important; /* Destaca a borda no escuro */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 2. Garante que os títulos h2 de dentro dos formulários herdem uma cor clara de alto contraste */
+body.dark-mode .login-container h2 {
+  color: #ffffff !important;
+}
+
+/* 3. Escurece sutilmente o fundo dos inputs para não cansar as vistas e harmonizar com o tema */
+body.dark-mode .input-group input,
+body.dark-mode .input-group select,
+body.dark-mode .input-group textarea {
+  background: rgba(11, 9, 20, 0.6) !important;
+  border: 1px solid rgba(168, 85, 247, 0.2) !important;
+  color: #ffffff !important; /* Garante que o texto digitado fique branco */
+}
+
+/* 4. Altera a cor do texto do placeholder (texto interno de ajuda que some ao digitar) */
+body.dark-mode .input-group input::placeholder,
+body.dark-mode .input-group select::placeholder,
+body.dark-mode .input-group textarea::placeholder {
+  color: #a094b7 !important;
+}
+
+/* 5. Faz os ícones internos roxos brilharem ligeiramente mais no escuro */
+body.dark-mode .input-group .icon i {
+  color: #c89cff !important;
+}
+
+/* 6. Atualiza a cor dos links alternativos e textos informativos das caixas */
+body.dark-mode .register-link,
+body.dark-mode .options-group,
+body.dark-mode .login-container > p {
+  color: #bfaecf !important;
+}

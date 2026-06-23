@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Perfil from '../Pages/perfil/perfil';
+import { NavLink } from 'react-router-dom';
 import './header.css';
 
 function Header() {
@@ -22,30 +21,29 @@ function Header() {
       
       <nav>
         <ul>
-          <li><Link to="/inicio">Início</Link></li>
-          <li><Link to="/eco">ECO IA</Link></li>
-          <li><Link to="/arena">Arena</Link></li>
-          <li><Link to="/galeria">Galeria</Link></li>
-          <li><Link to="/sobre">Sobre</Link></li>
+          <li><NavLink to="/inicio">Início</NavLink></li>
+          <li><NavLink to="/eco">ECO IA</NavLink></li>
+          <li><NavLink to="/arena">Arena</NavLink></li>
+          <li><NavLink to="/galeria">Galeria</NavLink></li>
+          <li><NavLink to="/cadastro-empresa">Seja Parceiro B2B</NavLink></li>
+          <li><NavLink to="/sobre">Sobre</NavLink></li>
         </ul>
       </nav>
 
       <div className="right">
-        {/* O BOTÃO COM CONTROLE POR TRANSFORM */}
         <div className="theme-switch" onClick={() => setIsDark(!isDark)}>
-  <div 
-    className="switch-circle" 
-    style={{ 
-      /* Move suavemente e fica preso dentro do container */
-      transform: isDark ? 'translateX(32px)' : 'translateX(0px)' 
-    }}
-  >
-    <i className={`fa-solid ${isDark ? 'fa-moon' : 'fa-sun'}`}></i>
-  </div>
-</div>
+          <div 
+            className="switch-circle" 
+            style={{ 
+              transform: isDark ? 'translateX(32px)' : 'translateX(0px)' 
+            }}
+          >
+            <i className={`fa-solid ${isDark ? 'fa-moon' : 'fa-sun'}`}></i>
+          </div>
+        </div>
 
         <div className="icon-btn"><i className="fa-solid fa-universal-access"></i></div>
-        <Link to="/perfil" className="icon-btn"><i className="fa-regular fa-circle-user"></i></Link>
+        <NavLink to="/perfil" className="icon-btn"><i className="fa-regular fa-circle-user"></i></NavLink>
       </div>
     </header>
   );

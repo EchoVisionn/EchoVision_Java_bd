@@ -78,7 +78,7 @@ public class UsuarioController {
     public ResponseEntity<?> deletarUsuario(@PathVariable int id) {
         //  Verificamos se o usuário existe no banco
         if (!usuarioRepository.existsById(id)) {
-            return ResponseEntity.status(404).body("{\"erro\": \"Usuário não encontrado para exclusão!\"}");
+            return ResponseEntity.status(   404).body("{\"erro\": \"Usuário não encontrado para exclusão!\"}");
         }
 
         //  Se existir, deletamos usando o ID fornecido na URL
