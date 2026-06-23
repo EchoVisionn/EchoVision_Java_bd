@@ -15,8 +15,8 @@ public class Fatura {
     @Column(name = "id_fat")
     private int id_fat;
 
-    private char item_fat;
-    private char desc_fat;
+    private String item_fat;
+    private String desc_fat;
     private float preco_item;
     private LocalDate data_comp;
 
@@ -28,19 +28,19 @@ public class Fatura {
         this.id_fat = id_fat;
     }
 
-    public char getItem_fat() {
+    public String getItem_fat() {
         return item_fat;
     }
 
-    public void setItem_fat(char item_fat) {
+    public void setItem_fat(String item_fat) {
         this.item_fat = item_fat;
     }
 
-    public char getDesc_fat() {
+    public String getDesc_fat() {
         return desc_fat;
     }
 
-    public void setDesc_fat(char desc_fat) {
+    public void setDesc_fat(String desc_fat) {
         this.desc_fat = desc_fat;
     }
 
