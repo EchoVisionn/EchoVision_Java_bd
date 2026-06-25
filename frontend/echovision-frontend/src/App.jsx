@@ -34,13 +34,13 @@ function App() {
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/cadastro-empresa" element={<CadastroEmpresa />} />
           <Route path="/cadastro-evento" element={<CadastroEvento />} />
+          <Route path="/perfil" element={<Perfil />} />
         </Route>
 
         {/* 2. ROTAS TOTALMENTE ISOLADAS (Telas limpas de autenticação) */}
         {/* 🌟 MUDANÇA: A rota raiz duplicada que estava aqui foi removida para não dar conflito */}
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/perfil" element={<Perfil />} />
 
       </Routes>
     </BrowserRouter>
