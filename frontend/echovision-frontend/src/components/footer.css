@@ -48,6 +48,37 @@
   font-size: 14px;
   color: #888;
   transition: border-color 0.3s ease, color 0.3s ease;
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-left {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 60px 20px 30px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-highlight {
+    font-size: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* ─── CONFIGURAÇÃO ADAPTATIVA DO RODAPÉ EM MODO ESCURO ─── */

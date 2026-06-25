@@ -141,6 +141,67 @@
   clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
+body.dark-mode .page-title-section h1 {
+  color: #ffffff !important;
+}
+
+body.dark-mode .page-title-section p {
+  color: #e2daeb !important;
+}
+
+body.dark-mode .galeria-card {
+  background: #161224 !important;
+  border: 1px solid rgba(168, 85, 247, 0.2) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45) !important;
+}
+
+body.dark-mode .card-content h3 {
+  color: #ffffff !important;
+}
+
+body.dark-mode .card-content .artist {
+  color: #c89cff !important;
+}
+
+body.dark-mode .card-content .desc {
+  color: #bfaecf !important;
+}
+
+body.dark-mode .galeria-card .btn {
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+}
+
+body.dark-mode .galeria-card .btn:hover {
+  filter: brightness(1.05);
+}
+
+@media (max-width: 900px) {
+  .galeria-main {
+    padding: 40px 16px;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .page-title-section {
+    margin-bottom: 36px;
+  }
+
+  .page-title-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-image {
+    height: 220px;
+  }
+}
 .pause-icon {
   position: relative;
   display: flex;

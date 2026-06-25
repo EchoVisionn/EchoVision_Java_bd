@@ -68,6 +68,10 @@ function Login() {
       {/* Conteúdo Principal (Formulário de Login) */}
       <main className="auth-main">
         <div className="login-container">
+          <Link to="/inicio" className="back-home-btn">
+            <i className="fa-solid fa-arrow-left"></i>
+            Voltar para a tela inicial
+          </Link>
           <h1>ECHOVISION</h1>
           <h2>Faça seu Login</h2>
           

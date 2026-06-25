@@ -3,16 +3,16 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RootLayout from './layouts/RootLayout';
 
 // Importações padronizadas com caminhos absolutos /src/ para evitar erros de pasta do Vite
-import Login from '/src/pages/login/login';
-import Cadastro from '/src/pages/cadastro/cadastro'; 
-import TelaUsuario from '/src/pages/telaUsuario/telaUsuario';
-import Perfil from '/src/pages/perfil/perfil';
-import Arena from '/src/pages/arena/arena';
-import Galeria from '/src/Pages/galeria/galeria'; // 🔥 Corrigido para 'Pages' com P maiúsculo
-import CadastroEmpresa from '/src/Pages/empresa/CadastroEmpresa'; // 🔥 Padronizado absoluto
-import CadastroEvento from '/src/Pages/empresa/cadastroEventos/CadastroEventos'; 
+import Login from '/src/Pages/login/login';
+import Cadastro from '/src/Pages/cadastro/cadastro';
+import TelaUsuario from '/src/Pages/telaUsuario/telaUsuario';
+import Perfil from '/src/Pages/perfil/perfil';
+import Arena from '/src/Pages/arena/arena';
+import Galeria from '/src/Pages/galeria/galeria';
+import CadastroEmpresa from '/src/Pages/empresa/CadastroEmpresa';
+import CadastroEvento from '/src/Pages/empresa/cadastroEventos/CadastroEventos';
+import EcoIA from '/src/Pages/echo/EcoIA';
 
-const Echo = () => <div style={{ padding: '120px 10%', textAlign: 'center' }}><h2>Tela ECO IA (Aguardando migração...)</h2></div>;
 const Sobre = () => <div style={{ padding: '120px 10%', textAlign: 'center' }}><h2>Tela Sobre (Aguardando migração...)</h2></div>;
 
 function App() {
@@ -29,7 +29,8 @@ function App() {
           <Route path="/inicio" element={<TelaUsuario />} /> 
           <Route path="/arena" element={<Arena />} />
           <Route path="/galeria" element={<Galeria />} />
-          <Route path="/eco" element={<Echo />} />
+          <Route path="/eco" element={<EcoIA />} />
+          <Route path="/echo" element={<EcoIA />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/cadastro-empresa" element={<CadastroEmpresa />} />
           <Route path="/cadastro-evento" element={<CadastroEvento />} />

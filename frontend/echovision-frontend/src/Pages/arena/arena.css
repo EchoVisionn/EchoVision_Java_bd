@@ -194,7 +194,75 @@
   margin: 40px auto;
 }
 
+body.dark-mode .arena-section h1,
+body.dark-mode .arena-section h2 {
+  color: #ffffff !important;
+}
+
+body.dark-mode .subtitle {
+  color: #e2daeb !important;
+}
+
+body.dark-mode .card-live,
+body.dark-mode .card-arena {
+  background: #161224 !important;
+  border: 1px solid rgba(168, 85, 247, 0.2) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45) !important;
+}
+
+body.dark-mode .card-live-body h3,
+body.dark-mode .card-arena-info h4 {
+  color: #ffffff !important;
+}
+
+body.dark-mode .card-live-body p,
+body.dark-mode .card-arena-info .campeonato {
+  color: #bfaecf !important;
+}
+
+body.dark-mode .btn-voltar {
+  color: #f5f3f7 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.dark-mode .btn-voltar:hover {
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+  color: white !important;
+}
+
 @media (max-width: 768px) {
-  .arena-grid { grid-template-columns: 1fr; }
-  .arena-section h1, .arena-section h2 { font-size: 1.7rem; }
+  .arena-main {
+    padding: 40px 16px;
+  }
+
+  .arena-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .arena-section h1,
+  .arena-section h2 {
+    font-size: 1.7rem;
+  }
+
+  .card-live-header {
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+  }
+
+  .card-live-body {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .arena-main {
+    padding: 28px 12px;
+  }
+
+  .btn-voltar,
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
 }
