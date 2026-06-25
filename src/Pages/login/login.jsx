@@ -69,7 +69,7 @@ function Login() {
       <main className="auth-main">
         <div className="login-container">
           <h1>ECHOVISION</h1>
-          <h2>Faça seu Login</h2>
+          <h2>Faça o seu Login</h2>
           
           <form onSubmit={handleLogin}>
             <div className="input-group">
