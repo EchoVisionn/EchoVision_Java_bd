@@ -2,6 +2,31 @@
   position: relative;
   background: transparent;
   min-height: 100vh;
+  overflow: hidden;
+}
+
+.galeria-container .wave-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: transparent;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.galeria-container .wave-wrapper .organic-waves {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.galeria-container .wave-wrapper .wave {
+  fill: none;
+  stroke-width: 2px;
+  opacity: 0.55;
+  animation: waveMove 10s linear infinite alternate;
 }
 
 .galeria-main {
@@ -10,11 +35,18 @@
   padding: 60px 20px;
   margin: 0 auto;
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .page-title-section {
   text-align: center;
   margin-bottom: 60px;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
 }
 
 .page-title-section h1 {
@@ -22,10 +54,12 @@
   font-weight: 800;
   margin-bottom: 8px;
   color: #1a0933;
+  background: transparent !important;
 }
 
 .page-title-section p {
   color: #5d5470;
+  background: transparent !important;
 }
 
 /* GRID DE CARDS */
@@ -143,10 +177,12 @@
 
 body.dark-mode .page-title-section h1 {
   color: #ffffff !important;
+  background: transparent !important;
 }
 
 body.dark-mode .page-title-section p {
   color: #e2daeb !important;
+  background: transparent !important;
 }
 
 body.dark-mode .galeria-card {
