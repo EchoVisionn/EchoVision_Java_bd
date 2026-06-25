@@ -1,0 +1,181 @@
+.home-container {
+  position: relative;
+  background: transparent;
+}
+
+/* --- HERO --- */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(168, 85, 247, 0.1);
+  color: var(--primary-purple);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.hero-title {
+  font-size: clamp(40px, 8vw, 90px);
+  font-weight: 800;
+  line-height: 0.9;
+  margin-bottom: 25px;
+}
+
+.viva { color: var(--primary-purple); }
+
+.hero-text {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.hero-btns { display: flex; justify-content: center; gap: 20px; }
+
+.btn-purple {
+  background: var(--primary-purple);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
+  transition: 0.3s;
+}
+
+.btn-purple:hover {
+  transform: translateY(-2px);
+  background: #9333ea;
+}
+
+.btn-outline {
+  border: 1px solid #ddd;
+  padding: 16px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--text-color);
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: var(--primary-purple);
+}
+
+/* --- SEÇÃO EVENTOS --- */
+.events-section { padding: 80px 10%; }
+.section-title { font-size: 42px; margin: 10px 0; transition: color 0.3s ease; }
+.pink { color: var(--primary-pink); }
+.section-desc { color: #555; transition: color 0.3s ease; }
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.event-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s, background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover { transform: translateY(-10px); }
+
+.card-header { position: relative; height: 220px; }
+.card-header img { width: 100%; height: 100%; object-fit: cover; }
+
+.tags { position: absolute; top: 15px; left: 15px; display: flex; gap: 8px; z-index: 2; }
+.tag-cat { background: var(--primary-purple); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; }
+.tag-info { background: rgba(0, 0, 0, 0.6); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; backdrop-filter: blur(4px); }
+
+.card-body { padding: 25px; }
+.card-body h3 { margin-bottom: 10px; color: #1a1a1a; transition: color 0.3s ease; }
+.card-body p { color: #666; margin-bottom: 8px; transition: color 0.3s ease; }
+.card-body p i { margin-right: 6px; color: var(--primary-purple); }
+.card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+
+.price { display: flex; flex-direction: column; }
+.price span { font-size: 12px; color: #888; transition: color 0.3s ease; }
+.price strong { font-size: 24px; color: var(--primary-purple); transition: color 0.3s ease; }
+
+.btn-buy {
+  background: var(--primary-purple);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-buy:hover {
+  background: #9333ea;
+}
+
+/* ─── CORREÇÕES UNIFICADAS PARA O MODO ESCURO (DARK MODE) ─── */
+
+/* 1. Títulos Principais (Incluso o "EVENTOS ESPORTIVOS" e o título do Hero) */
+body.dark-mode .hero-title,
+body.dark-mode .section-title {
+  color: #ffffff !important;
+}
+
+/* 2. Textos Descritivos (Abaixo dos títulos e do Hero) */
+body.dark-mode .hero-text,
+body.dark-mode .section-desc {
+  color: #e2daeb !important;
+}
+
+/* 3. Ajuste de Contraste Máximo dos Cards */
+body.dark-mode .event-card {
+  background-color: #161224 !important;
+  border: 1px solid rgba(168, 85, 247, 0.2) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Títulos internos dos cards */
+body.dark-mode .card-body h3 {
+  color: #ffffff !important;
+}
+
+/* Parágrafos, datas, locais e textos secundários dos cards */
+body.dark-mode .card-body p,
+body.dark-mode .price span {
+  color: #bfaecf !important;
+}
+
+/* Ajuste dos valores/preços dos cards no escuro */
+body.dark-mode .price strong {
+  color: #c89cff !important;
+}
+
+/* Ícones de Calendário e Localização */
+body.dark-mode .card-body p i {
+  color: var(--primary-purple) !important;
+}
+
+/* Botão outline do Hero no escuro */
+body.dark-mode .btn-outline {
+  color: #f5f3f7 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.dark-mode .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--primary-purple) !important;
+}
