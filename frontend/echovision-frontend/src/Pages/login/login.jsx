@@ -73,7 +73,7 @@ function Login() {
             Voltar para a tela inicial
           </Link>
           <h1>ECHOVISION</h1>
-          <h2>Faça seu Login</h2>
+          <h2>Faça o seu Login</h2>
           
           <form onSubmit={handleLogin}>
             <div className="input-group">

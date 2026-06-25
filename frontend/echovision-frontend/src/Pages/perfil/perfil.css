@@ -1,84 +1,247 @@
-/* Nova estilização para o botão de voltar limpo */
-.btn-back-clean {
-  background: none; /* Remove o fundo */
-  border: none; /* Remove a borda padrão */
-  color: #a78bfa; /* Cor roxa/violeta para combinar com o tema */
-  font-size: 1.2rem; /* Tamanho do ícone */
-  cursor: pointer;
-  position: absolute; /* Posiciona absolutamente dentro do container */
-  top: 20px; /* Distância do topo do container */
-  left: 20px; /* Distância da esquerda do container */
-  padding: 5px;
-  transition: color 0.2s ease, transform 0.2s ease; /* Transição suave */
+/* ── VARIÁVEIS ───────────────────────────────────── */
+:root {
+  --primary-purple: #8b5cf6;
+  --dark-purple: #6c3db9;
+  --light-bg: #f3f4f6;
+  --input-bg: #fafafa;
+  --input-border: #e2e8f0;
+  --btn-cancel-bg: #f3e8ff;
+  --btn-cancel-text: #6d28d9;
+  --event-card-bg: #eef2ff;
+}
+
+/* ── LÓGICA DE ABAS ──────────────────────────────── */
+/* Não precisa mais de .hidden — React controla com renderização condicional */
+
+/* ── BANNER SUPERIOR ─────────────────────────────── */
+.profile-banner {
+  background-color: var(--primary-purple);
+  color: white;
+  padding: 30px 10%;
+}
+
+.profile-banner h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.profile-banner p {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+/* ── LAYOUT SIDEBAR + CONTEÚDO ───────────────────── */
+.container-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+  padding: 20px 10%;
+}
+
+/* ── SIDEBAR ─────────────────────────────────────── */
+.sidebar-title {
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.btn-back-clean:hover {
-  color: #d946ef; /* Muda para rosa no hover */
-  transform: scale(1.1); /* Dá um pequeno zoom no hover */
-}
-
-/* Certifique-se de que o contêiner do perfil tenha position: relative */
-.perfil-container {
-  position: relative;
-}
-
-/* CONTAINER DOS TOASTS */
-.toast-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
   gap: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 25px;
+  color: #444;
 }
 
-/* ESTILO DO BALÃO DE AVISO */
-.toast-box {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border-left: 5px solid #a78bfa; /* Roxo padrão do time */
-  padding: 16px 24px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+.nav-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #333;
-  font-family: sans-serif;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 12px 15px;
+  cursor: pointer;
+  color: #777;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  transition: 0.3s;
+  text-align: left;
+}
+
+.nav-item:hover {
+  background: rgba(139, 92, 246, 0.08);
+  color: var(--primary-purple);
+}
+
+.nav-item.active {
+  background: white;
+  color: var(--primary-purple);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   font-weight: 600;
-  min-width: 300px;
-  
-  /* Animação para deslizar da direita para a esquerda */
-  animation: slideIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-/* Variações de Cores Baseadas no Tipo */
-.toast-box.sucesso {
-  border-left-color: #10b981; /* Verde */
+/* ── CARDS DE EVENTOS ────────────────────────────── */
+.evento-card {
+  display: flex;
+  gap: 20px;
+  background-color: var(--event-card-bg);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  align-items: center;
 }
 
-.toast-box.erro {
-  border-left-color: #ef4444; /* Vermelho */
+.evento-card img {
+  width: 180px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
 }
 
-.toast-box i {
-  font-size: 1.3rem;
+.evento-info h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #111;
 }
 
-.toast-box.sucesso i { color: #10b981; }
-.toast-box.erro i { color: #ef4444; }
+.evento-info p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
 
-@keyframes slideIn {
-  from {
-    transform: translateX(120%);
-    opacity: 0;
+/* ── CARD BRANCO (CONTAINER) ─────────────────────── */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 { font-size: 20px; margin-bottom: 15px; }
+
+.card hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin-bottom: 25px;
+}
+
+/* ── FORMULÁRIO ──────────────────────────────────── */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row { display: flex; gap: 15px; }
+.form-group { display: flex; flex-direction: column; flex: 1; }
+.form-group.full-width { width: 100%; }
+.form-row.phone-row .code-part { flex: 0 0 20%; }
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #666;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  background-color: var(--input-bg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.profile-form input:focus {
+  border-color: var(--primary-purple);
+}
+
+/* ── BOTÕES ──────────────────────────────────────── */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-cancel,
+.btn-save {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  transition: 0.2s;
+}
+
+.btn-cancel {
+  background-color: var(--btn-cancel-bg);
+  color: var(--btn-cancel-text);
+}
+
+.btn-cancel:hover { background-color: #ede0ff; }
+
+.btn-save {
+  background-color: var(--primary-purple);
+  color: white;
+}
+
+.btn-save:hover { background-color: var(--dark-purple); }
+
+/* ── UTILITÁRIOS ─────────────────────────────────── */
+.desktop-only { display: block; }
+
+/* ── RESPONSIVO ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .container-layout {
+    grid-template-columns: 1fr;
+    padding: 10px 5%;
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+
+  .desktop-only { display: none; }
+
+  .nav-item.active {
+    font-size: 17px;
+    margin-bottom: 20px;
+    color: black;
+  }
+
+  .evento-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .evento-card img {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .evento-info { padding: 15px; width: 100%; }
+
+  .form-row,
+  .form-row.triplet { flex-direction: column; gap: 12px; }
+
+  .profile-form input { padding: 14px; }
+
+  .form-buttons {
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+
+  .btn-cancel,
+  .btn-save {
+    flex: 1;
+    max-width: 150px;
+    border-radius: 30px;
   }
 }

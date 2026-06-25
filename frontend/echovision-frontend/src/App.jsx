@@ -3,15 +3,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RootLayout from './layouts/RootLayout';
 
 // Importações padronizadas com caminhos absolutos /src/ para evitar erros de pasta do Vite
-import Login from '/src/Pages/login/login';
-import Cadastro from '/src/Pages/cadastro/cadastro';
-import TelaUsuario from '/src/Pages/telaUsuario/telaUsuario';
-import Perfil from '/src/Pages/perfil/perfil';
-import Arena from '/src/Pages/arena/arena';
-import Galeria from '/src/Pages/galeria/galeria';
-import CadastroEmpresa from '/src/Pages/empresa/CadastroEmpresa';
-import CadastroEvento from '/src/Pages/empresa/cadastroEventos/CadastroEventos';
-import EcoIA from '/src/Pages/echo/EcoIA';
+import Login from '/src/pages/login/login';
+import Cadastro from '/src/pages/cadastro/cadastro'; 
+import TelaUsuario from '/src/pages/telaUsuario/telaUsuario';
+import Perfil from '/src/pages/perfil/perfil';
+import Arena from '/src/pages/arena/arena';
+import Galeria from '/src/Pages/galeria/galeria'; // 🔥 Corrigido para 'Pages' com P maiúsculo
+import CadastroEmpresa from '/src/Pages/empresa/CadastroEmpresa'; // 🔥 Padronizado absoluto
+import CadastroEvento from '/src/Pages/empresa/cadastroEventos/CadastroEventos'; 
 
 const Sobre = () => <div style={{ padding: '120px 10%', textAlign: 'center' }}><h2>Tela Sobre (Aguardando migração...)</h2></div>;
 
