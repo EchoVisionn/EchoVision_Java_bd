@@ -48,15 +48,16 @@
   gap: 10px;
   padding: 12px 18px;
   border-radius: 14px;
-  border: 1px solid rgba(140, 90, 180, 0.35);
-  background: transparent;
-  color: #f7f4ff;
+  border: 1px solid #d9d4ef;
+  background: #ffffff;
+  color: #4b2d7d;
   text-decoration: none;
   font-weight: 700;
+  box-shadow: 0 8px 18px rgba(84, 54, 138, 0.12);
 }
 
 .btn-back:hover {
-  background: rgba(118, 55, 170, 0.18);
+  background: #f4efff;
 }
 
 .compra-layout {
@@ -191,7 +192,7 @@
 .compra-buy-btn {
   width: 100%;
   border: none;
-  background: linear-gradient(135deg, #8e2de2, #ff4ecd);
+  background: #10b981;
   color: white;
   padding: 14px;
   border-radius: 14px;
@@ -202,7 +203,7 @@
 }
 
 .compra-buy-btn:hover {
-  filter: brightness(1.08);
+  background: #0d8f69;
 }
 
 .compra-confirmation {

@@ -113,7 +113,7 @@
 .price strong { font-size: 24px; color: var(--primary-purple); transition: color 0.3s ease; }
 
 .btn-buy {
-  background: var(--primary-purple);
+  background: #10b981;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -124,7 +124,7 @@
 }
 
 .btn-buy:hover {
-  background: #9333ea;
+  background: #0d8f69;
 }
 
 /* ─── CORREÇÕES UNIFICADAS PARA O MODO ESCURO (DARK MODE) ─── */

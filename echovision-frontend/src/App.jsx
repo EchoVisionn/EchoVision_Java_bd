@@ -13,6 +13,7 @@ import CadastroEmpresa from '/src/Pages/empresa/CadastroEmpresa';
 import CadastroEvento from '/src/Pages/empresa/cadastroEventos/CadastroEventos';
 import EcoIA from '/src/Pages/echo/EcoIA';
 import DashboardEmpresa from '/src/Pages/empresa/DashboardEmpresa';
+import CompraIngressos from '/src/Pages/compraIngressos/CompraIngressos';
 
 const Sobre = () => <div style={{ padding: '120px 10%', textAlign: 'center' }}><h2>Tela Sobre (Aguardando migração...)</h2></div>;
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/cadastro-evento" element={<CadastroEvento />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/dashboard-empresa" element={<DashboardEmpresa />} />
+          <Route path="/compra-ingressos" element={<CompraIngressos />} />
         </Route>
 
         {/* 2. ROTAS TOTALMENTE ISOLADAS (Telas limpas de autenticação) */}

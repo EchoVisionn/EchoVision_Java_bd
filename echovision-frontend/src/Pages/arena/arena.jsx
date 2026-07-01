@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './arena.css';
 
 import evento1 from '../../assets/imagens/evento-1.jpg';
@@ -18,6 +19,7 @@ const events = [
     title: 'Exposição "Sentir a Arte: Esculturas para Tocar"',
     category: 'Exposição',
     thumb: evento1,
+    price: 60,
     date: '15 de julho de 2026',
     time: '14h às 18h',
     location: 'Museu de Arte de São Paulo (MASP) – Avenida Paulista, 1578, São Paulo - SP',
@@ -29,6 +31,7 @@ const events = [
     title: 'Jantar Sensorial "Sabores no Escuro"',
     category: 'Gastronomia',
     thumb: evento2,
+    price: 120,
     date: '01 de agosto de 2026',
     time: '20h às 22h30',
     location: 'Restaurante Ateliê dos Sentidos – Pinheiros, São Paulo - SP',
@@ -40,6 +43,7 @@ const events = [
     title: 'Teatro com Audiodescrição: "O Som do Silêncio"',
     category: 'Teatro',
     thumb: evento3,
+    price: 95,
     date: '16 de agosto de 2026',
     time: '18h',
     location: 'Teatro Municipal do Rio de Janeiro – Praça Floriano, S/N, Rio de Janeiro - RJ',
@@ -51,6 +55,7 @@ const events = [
     title: 'Oficina de Tecnologia: "Domando o Smartphone com Leitores de Tela"',
     category: 'Tecnologia',
     thumb: evento4,
+    price: 45,
     date: '05 de setembro de 2026',
     time: '09h às 12h',
     location: 'Biblioteca Mário de Andrade – Rua da Consolação, 94, São Paulo - SP',
@@ -62,6 +67,7 @@ const events = [
     title: 'Circuito de Corrida e Caminhada Guiada "Lado a Lado"',
     category: 'Esporte',
     thumb: evento5,
+    price: 35,
     date: '20 de setembro de 2026',
     time: '07h (Concentração) | 08h (Largada)',
     location: 'Parque do Ibirapuera (Portão 3) – São Paulo - SP',
@@ -73,6 +79,7 @@ const events = [
     title: 'Cine Inclusão: Lançamentos Nacionais com Transmissão de Audiodescrição',
     category: 'Cinema',
     thumb: evento6,
+    price: 58,
     date: '10 de outubro de 2026',
     time: '15h',
     location: 'Cine Belas Artes – Rua da Consolação, 2423, São Paulo - SP',
@@ -84,6 +91,7 @@ const events = [
     title: 'Degustação de Vinhos Sensorial: "Aromas e Texturas"',
     category: 'Degustação',
     thumb: evento7,
+    price: 110,
     date: '24 de outubro de 2026',
     time: '19h',
     location: 'Enoteca Jardins – Alameda Lorena, São Paulo - SP',
@@ -95,6 +103,7 @@ const events = [
     title: 'Sarau Literário "Palavras que Tocam"',
     category: 'Literatura',
     thumb: evento8,
+    price: 25,
     date: '11 de novembro de 2026',
     time: '16h',
     location: 'Biblioteca Louis Braille (Centro Cultural São Paulo) – Rua Vergueiro, 1000, São Paulo - SP',
@@ -106,6 +115,7 @@ const events = [
     title: 'Oficina de Dança e Expressão Corporal "Ritmo e Espaço"',
     category: 'Dança',
     thumb: evento9,
+    price: 50,
     date: '28 de novembro de 2026',
     time: '10h às 12h',
     location: 'Centro de Dança do Distrito Federal – Setor de Autarquias Nortes, Brasília - DF',
@@ -117,6 +127,7 @@ const events = [
     title: 'Stand-up Comedy "Rir para Ver"',
     category: 'Humor',
     thumb: evento10,
+    price: 80,
     date: '12 de dezembro de 2026',
     time: '21h',
     location: 'Comedians Club – Rua Augusta, São Paulo - SP',
@@ -126,6 +137,8 @@ const events = [
 ];
 
 function EventCard({ event, onOpen }) {
+  const navigate = useNavigate();
+
   return (
     <article
       className="card-arena"
@@ -162,6 +175,9 @@ function EventCard({ event, onOpen }) {
       <div className="card-arena-action">
         <button className="btn-primary" onClick={e => { e.stopPropagation(); onOpen(event); }}>
           Ver detalhes <i className="fa-solid fa-caret-right" aria-hidden="true" />
+        </button>
+        <button className="btn-buy-card" onClick={e => { e.stopPropagation(); navigate('/compra-ingressos', { state: { event } }); }}>
+          Comprar ingresso
         </button>
       </div>
     </article>
@@ -253,6 +269,16 @@ export default function Arena() {
               </div>
 
               <p className="modal-description">{selectedEvent.description}</p>
+
+              <div className="modal-footer">
+                <div className="modal-price">
+                  <span className="meta-label">A partir de</span>
+                  <strong>R$ {selectedEvent.price}</strong>
+                </div>
+                <button className="btn-primary modal-buy-btn" onClick={() => { setSelectedEvent(null); navigate('/compra-ingressos', { state: { event: selectedEvent } }); }}>
+                  Comprar ingresso
+                </button>
+              </div>
             </div>
           </div>
         </div>

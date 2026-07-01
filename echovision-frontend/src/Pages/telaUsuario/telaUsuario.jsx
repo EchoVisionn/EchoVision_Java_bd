@@ -1,11 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './telaUsuario.css';
 
 import autoCompadecida from '/src/assets/imagens/auto-da-compadecida.jpeg';
 import corinthiansPalmeiras from '/src/assets/imagens/corinthians-palmeiras.png';
 
 function TelaUsuario() {
+  const navigate = useNavigate();
+
+  const eventosCompra = [
+    {
+      id: 1,
+      title: 'O Auto da Compadecida',
+      image: autoCompadecida,
+      category: 'Teatro',
+      date: '28 Jun · 21h00',
+      location: 'Sesc Pinheiros, São Paulo',
+      price: 89,
+      description: 'Audiodescrição ao vivo com narração imersiva para o público.',
+    },
+    {
+      id: 2,
+      title: 'Corinthians x Palmeiras — O Clássico Paulista',
+      image: corinthiansPalmeiras,
+      category: 'Esportes',
+      date: '05 Jul · 19h30',
+      location: 'Itaquera, São Paulo',
+      price: 65,
+      description: 'Experiência de áudio imersivo com narração ECO para o clássico paulista.',
+    },
+  ];
+
+  const handleComprar = (event) => {
+    navigate('/compra-ingressos', { state: { event } });
+  };
+
   return (
     <>
       {/* Filtro SVG e Ondas de Fundo */}
@@ -48,55 +77,30 @@ function TelaUsuario() {
         <p className="section-desc">Cada ingresso inclui narração descritiva ao vivo pela ECO, com fones sem fio sincronizados ao jogo.</p>
 
         <div className="event-grid">
-          
-          {/* Card 1 */}
-          <div className="event-card">
-            <div className="card-header">
-              <img src={autoCompadecida} alt="Imagem de personagens da peça o Auto da Compadecida" />
-              <div className="tags">
-                <span className="tag-cat">Teatro</span>
-                <span className="tag-info">Audiodescrição ao vivo</span>
-              </div>
-              <div className="card-overlay"></div>
-            </div>
-            <div className="card-body">
-              <h3>O Auto da Compadecida</h3>
-              <p><i className="fa-regular fa-calendar"></i> 28 Jun · 21h00</p>
-              <p><i className="fa-solid fa-location-dot"></i> Sesc Pinheiros, São Paulo</p>
-              <div className="card-footer">
-                <div className="price">
-                  <span>a partir de</span>
-                  <strong>R$ 89</strong>
+          {eventosCompra.map((event) => (
+            <div className="event-card" key={event.id}>
+              <div className="card-header">
+                <img src={event.image} alt={`Imagem do evento ${event.title}`} />
+                <div className="tags">
+                  <span className="tag-cat">{event.category}</span>
+                  <span className="tag-info">Audiodescrição ao vivo</span>
                 </div>
-                <button className="btn-buy">Comprar</button>
+                <div className="card-overlay"></div>
               </div>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="event-card">
-            <div className="card-header">
-              <img src={corinthiansPalmeiras} alt="Brasão do Corinthians e do Palmeiras" />
-              <div className="tags">
-                <span className="tag-cat">Esportes</span>
-                <span className="tag-info">Narração ECO</span>
-              </div>
-              <div className="card-overlay"></div>
-            </div>
-            <div className="card-body">
-              <h3>Corinthians x Palmeiras — O Clássico Paulista</h3>
-              <p><i className="fa-regular fa-calendar"></i> 05 Jul · 19h30</p>
-              <p><i className="fa-solid fa-location-dot"></i> Itaquera, São Paulo</p>
-              <div className="card-footer">
-                <div className="price">
-                  <span>a partir de</span>
-                  <strong>R$ 65</strong>
+              <div className="card-body">
+                <h3>{event.title}</h3>
+                <p><i className="fa-regular fa-calendar"></i> {event.date}</p>
+                <p><i className="fa-solid fa-location-dot"></i> {event.location}</p>
+                <div className="card-footer">
+                  <div className="price">
+                    <span>a partir de</span>
+                    <strong>R$ {event.price}</strong>
+                  </div>
+                  <button className="btn-buy" onClick={() => handleComprar(event)}>Comprar</button>
                 </div>
-                <button className="btn-buy">Comprar</button>
               </div>
             </div>
-          </div>
-
+          ))}
         </div>
       </section>
     </>
