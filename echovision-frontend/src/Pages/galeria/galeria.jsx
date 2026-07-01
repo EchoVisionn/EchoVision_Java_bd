@@ -119,14 +119,6 @@ export default function Galeria() {
 
   return (
     <div className="galeria-container">
-      <div className="wave-wrapper">
-        <svg className="organic-waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path className="wave path-1" d="M0,160 C320,300,420,0,720,160 C1020,320,1120,0,1440,160 V320 H0 Z"></path>
-          <path className="wave path-2" d="M0,160 C320,0,420,300,720,160 C1020,20,1120,320,1440,160 V320 H0 Z"></path>
-          <path className="wave path-3" d="M0,160 C160,200,320,100,480,160 C640,220,800,100,960,160 C1120,220,1280,100,1440,160 V320 H0 Z"></path>
-        </svg>
-      </div>
-
       <main className="galeria-main">
         <header className="page-title-section">
           <h1>Galeria Imersiva</h1>
@@ -150,8 +142,11 @@ export default function Galeria() {
                   
                   {/* Botão de Áudio (Mantido Original) */}
                   <button 
+                    type="button"
                     className={`btn ${isCurrentPlaying ? 'playing' : ''}`}
                     onClick={() => handlePlayPause(artwork)}
+                    aria-pressed={isCurrentPlaying}
+                    aria-label={isCurrentPlaying ? `Pausar experiência da obra ${artwork.title}` : `Ouvir experiência da obra ${artwork.title}`}
                   >
                     <span className={isCurrentPlaying ? "pause-icon" : "play-icon"}></span>
                     <span className="btn-text">

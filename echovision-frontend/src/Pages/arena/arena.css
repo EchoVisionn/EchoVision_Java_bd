@@ -122,10 +122,29 @@
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s ease;
-  cursor: pointer;
 }
 
 .card-arena:hover { transform: translateY(-6px); }
+
+.card-arena-trigger {
+  background: transparent;
+  border: none;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.card-arena-trigger:focus-visible,
+.btn-primary:focus-visible,
+.btn-buy-card:focus-visible,
+.modal-close:focus-visible,
+.btn-back:focus-visible,
+.compra-buy-btn:focus-visible,
+.card-live .btn-primary:focus-visible {
+  outline: 3px solid #a855f7;
+  outline-offset: 3px;
+}
 
 .card-arena-thumb {
   height: 190px;
@@ -230,13 +249,17 @@
 }
 
 .modal-content {
-  width: min(520px, 100%);
-  max-height: 82vh;
+  width: min(420px, 100%);
+  max-height: 74vh;
   overflow: auto;
   background: #f9f7ff;
   border-radius: 28px;
   position: relative;
   box-shadow: 0 25px 80px rgba(20, 10, 30, 0.45);
+}
+
+.modal-body {
+  padding: 20px 24px 24px;
 }
 
 .modal-close {

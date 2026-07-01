@@ -69,8 +69,8 @@ function CompraIngressos() {
 
       <div className="compra-shell">
         <div className="compra-topbar">
-          <button className="btn-back" onClick={() => navigate(-1)}>
-            <i className="fa-solid fa-arrow-left"></i> Voltar
+          <button type="button" className="btn-back" onClick={() => navigate(-1)} aria-label="Voltar para a página anterior">
+            <i className="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar
           </button>
         </div>
 
@@ -142,12 +142,12 @@ function CompraIngressos() {
               <strong>R$ {total.toFixed(2)}</strong>
             </div>
 
-            <button className="compra-buy-btn" onClick={handleBuy}>
+            <button type="button" className="compra-buy-btn" onClick={handleBuy} aria-label={`Confirmar compra para ${selectedEvent.title}`}>
               Confirmar compra
             </button>
 
             {confirmed && (
-              <div className="compra-confirmation">
+              <div className="compra-confirmation" role="status" aria-live="polite">
                 <strong>Compra simulada concluída!</strong>
                 <p>{quantity} ingresso(s) para {selectedEvent.title} confirmados.</p>
               </div>

@@ -140,37 +140,32 @@ function EventCard({ event, onOpen }) {
   const navigate = useNavigate();
 
   return (
-    <article
-      className="card-arena"
-      onClick={() => onOpen(event)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onOpen(event);
-        }
-      }}
-      aria-label={`Abrir detalhes do evento ${event.title}`}
-    >
-      <div>
-        <div
-          className="card-arena-thumb"
-          style={{ backgroundImage: `url('${event.thumb}')` }}
-          role="img"
-          aria-label={`Imagem do evento: ${event.title}`}
-        >
-          <div className="card-arena-overlay" aria-hidden="true">
-            {event.category}
+    <article className="card-arena">
+      <button
+        type="button"
+        className="card-arena-trigger"
+        onClick={() => onOpen(event)}
+        aria-label={`Abrir detalhes do evento ${event.title}`}
+      >
+        <div>
+          <div
+            className="card-arena-thumb"
+            style={{ backgroundImage: `url('${event.thumb}')` }}
+            role="img"
+            aria-label={`Imagem do evento: ${event.title}`}
+          >
+            <div className="card-arena-overlay" aria-hidden="true">
+              {event.category}
+            </div>
+          </div>
+
+          <div className="card-arena-info">
+            <h4>{event.title}</h4>
+            <div className="campeonato">{event.date}</div>
+            <p className="event-location-card">{event.location}</p>
           </div>
         </div>
-
-        <div className="card-arena-info">
-          <h4>{event.title}</h4>
-          <div className="campeonato">{event.date}</div>
-          <p className="event-location-card">{event.location}</p>
-        </div>
-      </div>
+      </button>
 
       <div className="card-arena-action">
         <button className="btn-primary" onClick={e => { e.stopPropagation(); onOpen(event); }}>
@@ -191,20 +186,12 @@ export default function Arena() {
 
   return (
     <div className="arena-page">
-      <div className="wave-wrapper">
-        <svg className="organic-waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path className="wave path-1" d="M0,160 C320,300,420,0,720,160 C1020,320,1120,0,1440,160 V320 H0 Z"></path>
-          <path className="wave path-2" d="M0,160 C320,0,420,300,720,160 C1020,20,1120,320,1440,160 V320 H0 Z"></path>
-          <path className="wave path-3" d="M0,160 C160,200,320,100,480,160 C640,220,800,100,960,160 C1120,220,1280,100,1440,160 V320 H0 Z"></path>
-        </svg>
-      </div>
-
       <main className="arena-main">
         <section className="arena-section">
           <h1>Eventos</h1>
           <p className="subtitle">Descubra experiências inclusivas, culturais e sensoriais para todos.</p>
 
-          <div className="card-live" onClick={() => setSelectedEvent(featuredEvent)} role="button" tabIndex={0} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedEvent(featuredEvent); } }} aria-label={`Abrir detalhes do evento destaque ${featuredEvent.title}`}>
+          <article className="card-live">
             <div className="card-live-header">
               <img src={featuredEvent.thumb} alt={featuredEvent.title} />
             </div>
@@ -217,12 +204,12 @@ export default function Arena() {
               <p className="card-live-description">
                 {featuredEvent.description}
               </p>
-              <button className="btn-primary" onClick={e => { e.stopPropagation(); setSelectedEvent(featuredEvent); }}>
+              <button className="btn-primary" onClick={() => setSelectedEvent(featuredEvent)}>
                 <i className="fa-solid fa-play" style={{ fontSize: '0.7rem' }} aria-hidden="true" />
                 Ver destaque
               </button>
             </div>
-          </div>
+          </article>
         </section>
 
         <section className="arena-section">
@@ -241,7 +228,7 @@ export default function Arena() {
 
       {selectedEvent && (
         <div className="modal-backdrop" onClick={() => setSelectedEvent(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" role="dialog" aria-modal="true" aria-labelledby="event-modal-title" onClick={e => e.stopPropagation()}>
             <button className="modal-close" onClick={() => setSelectedEvent(null)} aria-label="Fechar detalhes do evento">
               ×
             </button>
@@ -250,7 +237,7 @@ export default function Arena() {
 
             <div className="modal-body">
               <span className="modal-category">{selectedEvent.category}</span>
-              <h3>{selectedEvent.title}</h3>
+              <h3 id="event-modal-title">{selectedEvent.title}</h3>
 
               <div className="modal-meta">
                 <div>

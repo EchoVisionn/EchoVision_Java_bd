@@ -83,11 +83,17 @@ function Header() {
         </nav>
 
         <div className="right">
-          <div className="theme-switch" onClick={() => setIsDark(!isDark)}>
-            <div className={`switch-circle ${isDark ? 'active' : ''}`}>
+          <button
+            type="button"
+            className="theme-switch"
+            onClick={() => setIsDark(prev => !prev)}
+            aria-pressed={isDark}
+            aria-label={isDark ? 'Ativar modo claro' : 'Ativar modo escuro'}
+          >
+            <span className={`switch-circle ${isDark ? 'active' : ''}`} aria-hidden="true">
               <i className={`fa-solid ${isDark ? 'fa-moon' : 'fa-sun'}`}></i>
-            </div>
-          </div>
+            </span>
+          </button>
 
           <button
             className="menu-toggle"
@@ -108,6 +114,7 @@ function Header() {
             className={`icon-btn desktop-only ${isLogged ? 'user-logged' : ''}`}
             style={{ background: 'none', border: 'none', cursor: 'pointer' }}
             title={isLogged ? "Acessar Meu Perfil" : "Entrar ou Criar Conta"}
+            aria-label={isLogged ? 'Acessar meu perfil' : 'Entrar ou criar conta'}
           >
             <i className="fa-regular fa-circle-user"></i>
           </button>

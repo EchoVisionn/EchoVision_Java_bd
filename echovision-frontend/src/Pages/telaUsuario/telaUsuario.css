@@ -33,7 +33,7 @@
 
 .hero-text {
   font-size: 1.2rem;
-  color: #555;
+  color: #374151;
   margin-bottom: 40px;
   line-height: 1.6;
   transition: color 0.3s ease;
@@ -42,8 +42,8 @@
 .hero-btns { display: flex; justify-content: center; gap: 20px; }
 
 .btn-purple {
-  background: var(--primary-purple);
-  color: white;
+  background: #7c3aed;
+  color: #ffffff;
   padding: 16px 32px;
   border-radius: 30px;
   text-decoration: none;
@@ -54,7 +54,7 @@
 
 .btn-purple:hover {
   transform: translateY(-2px);
-  background: #9333ea;
+  background: #6d28d9;
 }
 
 .btn-outline {
@@ -76,7 +76,7 @@
 .events-section { padding: 80px 10%; }
 .section-title { font-size: 42px; margin: 10px 0; transition: color 0.3s ease; }
 .pink { color: var(--primary-pink); }
-.section-desc { color: #555; transition: color 0.3s ease; }
+.section-desc { color: #374151; transition: color 0.3s ease; }
 
 .event-grid {
   display: grid;
@@ -99,22 +99,22 @@
 .card-header img { width: 100%; height: 100%; object-fit: cover; }
 
 .tags { position: absolute; top: 15px; left: 15px; display: flex; gap: 8px; z-index: 2; }
-.tag-cat { background: var(--primary-purple); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; }
+.tag-cat { background: #6d28d9; color: #ffffff; padding: 4px 12px; border-radius: 12px; font-size: 11px; }
 .tag-info { background: rgba(0, 0, 0, 0.6); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; backdrop-filter: blur(4px); }
 
 .card-body { padding: 25px; }
 .card-body h3 { margin-bottom: 10px; color: #1a1a1a; transition: color 0.3s ease; }
-.card-body p { color: #666; margin-bottom: 8px; transition: color 0.3s ease; }
+.card-body p { color: #4b5563; margin-bottom: 8px; transition: color 0.3s ease; }
 .card-body p i { margin-right: 6px; color: var(--primary-purple); }
 .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
 
 .price { display: flex; flex-direction: column; }
-.price span { font-size: 12px; color: #888; transition: color 0.3s ease; }
+.price span { font-size: 12px; color: #4b5563; transition: color 0.3s ease; }
 .price strong { font-size: 24px; color: var(--primary-purple); transition: color 0.3s ease; }
 
 .btn-buy {
-  background: #10b981;
-  color: white;
+  background: #047857;
+  color: #ffffff;
   border: none;
   padding: 10px 20px;
   border-radius: 15px;

@@ -60,9 +60,9 @@ function TelaUsuario() {
         <div className="hero-badge">
           <i className="fa-solid fa-bars-staggered"></i> AUDIODESCRIÇÃO EM TEMPO REAL
         </div>
-        <h1 className="hero-title">Escute, sinta,<br /><span className="viva">viva.</span></h1>
+        <h1 className="hero-title">Escute. sinta.<br /><span className="viva">viva.</span></h1>
         <p className="hero-text">
-          O <strong>EchoVision</strong> transforma eventos esportivos e culturais em experiências imersivas em áudio, narradas pela nossa IA <strong>ECO</strong>.
+          A <strong>EchoVision</strong> transforma eventos esportivos e culturais em experiências imersivas em áudio, narradas pela nossa IA <strong>ECO</strong>.
         </p>
         <div className="hero-btns">
           <Link to="/eco" className="btn-purple">Conversar com a ECO <i className="fa-solid fa-arrow-right"></i></Link>
