@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import AccessibilityMenu from '../components/Accessibility/AccessibilityMenu';
 
 function RootLayout() {
   return (
@@ -15,6 +16,7 @@ function RootLayout() {
       </div>
 
       <Header />
+      <AccessibilityMenu />
       <div style={{ flex: 1, position: 'relative', zIndex: 1 }}>
         <Outlet />
       </div>

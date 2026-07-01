@@ -10,10 +10,44 @@
   --primary-purple: #a855f7;
   --primary-pink: #d946ef;
   --font-base-size: 16px;
+  --font-scale: 1;
   --header-bg: rgba(243, 237, 247, 0.8);
   
   --wave-pink: #ff78dc;
   --wave-blue: #4facfe;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: calc(var(--font-base-size) * var(--font-scale));
+  overflow-x: hidden;
+}
+
+body.daltonism-protanopia {
+  filter: url('#protanopia-filter');
+}
+
+body.daltonism-deuteranopia {
+  filter: url('#deuteranopia-filter');
+}
+
+body.daltonism-tritanopia {
+  filter: url('#tritanopia-filter');
+}
+
+body.daltonism-acromatopsia {
+  filter: grayscale(100%);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(168, 85, 247, 0.65);
+  outline-offset: 3px;
 }
 
 body.high-contrast {
@@ -27,14 +61,6 @@ body.high-contrast {
 
 body.large-font {
   --font-base-size: 20px;
-}
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-size: var(--font-base-size);
-  overflow-x: hidden;
 }
 
 /* --- FUNDO ANIMADO COMPARTILHADO --- */

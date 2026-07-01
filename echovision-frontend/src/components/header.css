@@ -126,6 +126,30 @@ nav a:hover {
   color: #5d5470;
   cursor: pointer;
   transition: 0.3s;
+  background: none;
+  border: none;
+}
+
+.icon-btn:hover,
+.icon-btn:focus-visible {
+  color: var(--primary-purple);
+}
+
+.accessibility-access-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  background: rgba(243, 237, 247, 0.7);
+}
+
+.accessibility-access-button:hover,
+.accessibility-access-button:focus-visible {
+  border-color: rgba(168, 85, 247, 0.45);
+  background: rgba(248, 231, 255, 0.95);
 }
 
 .icon-btn:hover { 

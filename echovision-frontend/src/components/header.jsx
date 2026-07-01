@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './header.css';
 
+import AccessibilityButton from './Accessibility/AccessibilityButton';
+
 function Header() {
   const [isDark, setIsDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -95,6 +97,8 @@ function Header() {
             </span>
           </button>
 
+          <AccessibilityButton />
+
           <button
             className="menu-toggle"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -106,8 +110,6 @@ function Header() {
             <span></span>
           </button>
 
-          <div className="icon-btn desktop-only"><i className="fa-solid fa-universal-access"></i></div>
-          
           {/* Botão de Perfil Inteligente na Desktop */}
           <button 
             onClick={handleProfileClick} 
