@@ -158,16 +158,6 @@ export default function Galeria() {
                       {isCurrentPlaying ? "Pausar Experiência" : "Ouvir Experiência"}
                     </span>
                   </button>
-
-                  {/* 🔥 NOVO BOTÃO: Dispara o fluxo de compra conectando as pontas */}
-                  <button 
-                    className="btn btn-comprar" 
-                    onClick={() => handleComprarIngresso(artwork)}
-                    style={{ marginTop: '12px', backgroundColor: '#10b981' }} 
-                  >
-                    <i className="fa-solid fa-ticket" style={{ marginRight: '8px' }}></i>
-                    Garantir Ingresso
-                  </button>
                 </div>
               </div>
             );
