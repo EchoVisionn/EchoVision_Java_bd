@@ -26,34 +26,8 @@ function TelaUsuario() {
         </svg>
       </div>
 
-      {/* Seção Hero */}
       <section className="hero" style={{ position: 'relative' }}>
         
-        {/* 🌟 CONTAINER DO BOTÃO DE LOGIN/CADASTRO ADICIONADO NO TOPO */}
-        <div className="auth-top-bar" style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', padding: '10px 0 30px 0' }}>
-          <Link 
-            to="/login" 
-            className="btn-auth-trigger"
-            style={{
-              padding: '10px 22px',
-              borderRadius: '30px',
-              border: '2px solid #a78bfa',
-              color: '#a78bfa',
-              textDecoration: 'none',
-              fontWeight: 'bold',
-              fontSize: '0.9rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(4px)',
-              transition: 'all 0.2s ease'
-            }}
-          >
-            <i className="fa-solid fa-right-to-bracket"></i> Entrar ou Criar Conta
-          </Link>
-        </div>
-
         <div className="hero-badge">
           <i className="fa-solid fa-bars-staggered"></i> AUDIODESCRIÇÃO EM TEMPO REAL
         </div>

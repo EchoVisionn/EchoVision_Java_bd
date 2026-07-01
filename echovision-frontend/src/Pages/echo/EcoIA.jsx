@@ -1,45 +1,98 @@
 import { useState, useRef, useEffect } from "react";
 import "./eco.css";
-import { SUGGESTIONS, INITIAL_MESSAGE, sendToEco } from "./js/eco-ia.js";
+import { 
+  SUGGESTIONS, 
+  INITIAL_MESSAGE, 
+  sendToEco, 
+  falarTexto, 
+  recognition,
+  pausarFala,   
+  retomarFala, 
+  pararFala 
+} from "./js/eco-ia.js";
 
 export default function EcoIA() {
   const [messages, setMessages] = useState([INITIAL_MESSAGE]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [ecoState, setEcoState] = useState("idle"); 
+  const [isListening, setIsListening] = useState(false);
   const chatBodyRef = useRef(null);
 
-  // Apply dark class to body for CSS variable switching
+  // Controla o modo escuro (Dark Mode)
   useEffect(() => {
     document.body.classList.toggle("dark", isDark);
   }, [isDark]);
 
-  // Auto-scroll chat to bottom on new messages
+  // Auto-scroll para o final do chat a cada nova mensagem ou carregamento
   useEffect(() => {
     if (chatBodyRef.current) {
       chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
     }
   }, [messages, loading]);
 
+  // --- FUNÇÃO DE ENVIO DE MENSAGENS ---
   const sendMessage = async (text) => {
     const userText = (text || input).trim();
     if (!userText || loading) return;
 
+    // Adiciona a mensagem do usuário na tela
     const newMessages = [...messages, { role: "user", content: userText }];
     setMessages(newMessages);
     setInput("");
     setLoading(true);
 
     try {
-      const reply = await sendToEco(newMessages);
+      // 1. Envia a pergunta para o servidor Flask Python (porta 5000)
+      const reply = await sendToEco(userText);
+      
+      // 2. Insere a resposta da ECO nos balões de chat
       setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
-    } catch {
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: "Erro ao conectar. Tente novamente." },
-      ]);
+      
+      // 3. Ativa o sintetizador de voz para verbalizar a resposta da IA
+      setEcoState("talking");
+      falarTexto(reply, setEcoState);
+
+    } catch (error) {
+      const msgErro = "Ops! Tive um problema para me conectar ao meu cérebro Python. O servidor está ligado?";
+      setMessages((prev) => [...prev, { role: "assistant", content: msgErro }]);
+      falarTexto(msgErro, setEcoState);
     } finally {
       setLoading(false);
+    }
+  };
+
+  // --- FUNÇÃO DO MICROFONE (Speech Recognition) ---
+  const ativarMicrofone = () => {
+    if (!recognition) {
+      alert("O reconhecimento de voz não é suportado ou permitido neste navegador. Tente usar o Google Chrome.");
+      return;
+    }
+
+    if (loading) return;
+
+    try {
+      setIsListening(true);
+      recognition.start();
+
+      recognition.onresult = (event) => {
+        const textCapturado = event.results[0][0].transcript;
+        sendMessage(textCapturado); // Envia automaticamente o que foi falado
+      };
+
+      recognition.onend = () => {
+        setIsListening(false);
+      };
+
+      recognition.onerror = (event) => {
+        console.error("Erro no microfone:", event.error);
+        setIsListening(false);
+      };
+
+    } catch (err) {
+      console.error("Instância do microfone já estava ativa:", err);
+      setIsListening(false);
     }
   };
 
@@ -72,9 +125,9 @@ export default function EcoIA() {
         </svg>
       </div>
 
-      {/* Main */}
+      {/* Main Container */}
       <main className="home-container">
-        {/* Hero */}
+        {/* Hero Section */}
         <section className="hero">
           <div className="hero-badge">IA GENERATIVA DE VOZ</div>
           <h1 className="hero-title">
@@ -82,11 +135,11 @@ export default function EcoIA() {
           </h1>
           <p className="hero-text">
             Sua companheira de áudio. Pergunte, peça descrições e navegue pelo
-            site só com a voz.
+            site de forma totalmente acessível.
           </p>
         </section>
 
-        {/* Chat */}
+        {/* Chat Section */}
         <section className="chat-section">
           <div className="chat-window">
 
@@ -94,14 +147,39 @@ export default function EcoIA() {
             <div className="chat-header">
               <div className="user-info">
                 <div className="avatar">🔊</div>
+                {/* Espaço do Avatar Dinâmico da ECO */}
+                <div className="eco-avatar-container">
+                  {ecoState === "talking" ? (
+                    <video 
+                      src="/eco_vid.mp4" 
+                      autoPlay 
+                      loop 
+                      muted 
+                      className="eco-avatar-media"
+                    />
+                  ) : (
+                    <img 
+                      src="/eco_img.jpeg" 
+                      alt="Mascote Echo Parada" 
+                      className="eco-avatar-media"
+                    />
+                  )}
+                </div>
                 <div className="status">
                   <strong>ECO</strong>
-                  <span>Online · Narrando agora</span>
+                  <span>{isListening ? "Ouvindo você..." : "Online · Narrando agora"}</span>
                 </div>
               </div>
-              <div className="audio-wave">
+              <div className={`audio-wave ${isListening ? "active" : ""}`}>
                 <span /><span /><span /><span />
               </div>
+            </div>
+
+            {/* Painel de Controle de Acessibilidade de Áudio */}
+            <div className="audio-controls-panel">
+              <button onClick={() => pausarFala(setEcoState)} className="audio-control-btn btn-pause">⏸️ Pausar</button>
+              <button onClick={() => retomarFala(setEcoState)} className="audio-control-btn btn-resume">▶️ Continuar</button>
+              <button onClick={() => pararFala(setEcoState)} className="audio-control-btn btn-stop">⏹️ Parar</button>
             </div>
 
             {/* Chat Body */}
@@ -126,35 +204,45 @@ export default function EcoIA() {
 
             {/* Chat Footer */}
             <div className="chat-footer">
+              {/* Chips / Sugestões Rápidas */}
               <div className="suggestions">
                 {SUGGESTIONS.map((s) => (
                   <button
                     key={s}
                     onClick={() => sendMessage(s)}
-                    disabled={loading}
+                    disabled={loading || isListening}
                   >
                     {s}
                   </button>
                 ))}
               </div>
 
+              {/* Input Area */}
               <div className="input-area">
-                <span className="mic-icon">🎙️</span>
+                <button 
+                  className={`mic-btn ${isListening ? "recording" : ""}`} 
+                  onClick={ativarMicrofone}
+                  disabled={loading}
+                  title="Ativar reconhecimento de voz"
+                  style={{ backgroundColor: isListening ? "#ef4444" : "transparent" }}
+                >
+                  🎙️
+                </button>
                 <input
                   type="text"
-                  placeholder="Pergunte qualquer coisa à ECO..."
+                  placeholder={isListening ? "Ouvindo..." : "Pergunte qualquer coisa à ECO..."}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKey}
-                  disabled={loading}
+                  disabled={loading || isListening}
                 />
                 <button
                   className="send-btn"
                   onClick={() => sendMessage()}
-                  disabled={loading}
+                  disabled={loading || !input.trim() || isListening}
                   aria-label="Enviar mensagem"
                 >
-                  ➤
+                  {input.trim().length > 0 ? "➤" : "👋"}
                 </button>
               </div>
             </div>
@@ -162,7 +250,6 @@ export default function EcoIA() {
           </div>
         </section>
       </main>
-
     </div>
   );
 }

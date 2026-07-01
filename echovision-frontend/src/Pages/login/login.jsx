@@ -12,7 +12,6 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault(); 
 
-    // Montei o objeto exatamente com os atributos esperados pelo seu UsuarioController (@RequestBody Usuario dados)
     const dadosLogin = {
       email_user: email,
       senha_user: senha

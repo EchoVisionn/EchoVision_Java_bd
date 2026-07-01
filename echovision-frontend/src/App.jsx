@@ -23,7 +23,7 @@ function App() {
         
         {/* 1. GRUPO COM LAYOUT PADRÃO (Header e Footer globais) */}
         <Route element={<RootLayout />}>
-          {/* 🌟 MUDANÇA: A rota raiz "/" agora está aqui dentro. O site inicia com Header, Footer e TelaUsuario juntos! */}
+          {/* MUDANÇA: A rota raiz "/" agora está aqui dentro. O site inicia com Header, Footer e TelaUsuario juntos! */}
           <Route path="/" element={<TelaUsuario />} />
           
           {/* Mantido /inicio apontando para o mesmo lugar para não quebrar links internos existentes */}
@@ -40,7 +40,7 @@ function App() {
         </Route>
 
         {/* 2. ROTAS TOTALMENTE ISOLADAS (Telas limpas de autenticação) */}
-        {/* 🌟 MUDANÇA: A rota raiz duplicada que estava aqui foi removida para não dar conflito */}
+        {/*  MUDANÇA: A rota raiz duplicada que estava aqui foi removida para não dar conflito */}
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
 

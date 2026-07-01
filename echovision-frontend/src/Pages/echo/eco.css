@@ -576,3 +576,84 @@ body.dark .footer-column h3 { color: #7060a0; }
 
   .footer-bottom { flex-direction: column; gap: 4px; }
 }
+
+/* Container dos controles de áudio */
+.audio-controls-panel {
+  display: flex;
+  gap: 16px;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3e8ff; /* Um lilás bem suave para destacar o painel */
+  border-bottom: 1px solid #e9d5ff;
+  border-top: 1px solid #e9d5ff;
+}
+
+/* Botão base moderno */
+.audio-control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7c3aed; /* Texto em roxo escuro para dar contraste e acessibilidade */
+  background-color: #ffffff; /* Fundo branco para contrastar com o fundo lilás */
+  border: 1px solid #c084fc; /* Borda roxa suave */
+  border-radius: 20px; /* Formato pílula arredondado */
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(124, 58, 237, 0.05);
+}
+
+/* Evita aquela borda preta grossa feia quando o botão é selecionado */
+.audio-control-btn:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.audio-control-btn:hover {
+  color: #ffffff;
+  background-color: #7c3aed; /* Inverte: fica roxo com texto branco */
+  border-color: #7c3aed;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(124, 58, 237, 0.15);
+}
+
+/* Efeito ao clicar */
+.audio-control-btn:active {
+  transform: translateY(1px);
+}
+
+/* Ícones (Emojis) dentro dos botões */
+.audio-control-btn span {
+  font-size: 13px;
+}
+
+/* Estilo especial de perigo/alerta para o botão Parar ao passar o mouse */
+.btn-stop:hover {
+  background-color: #ef4444;
+  border-color: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2);
+}
+
+.eco-avatar-container {
+  width: 80px;  /* Ajuste o tamanho baseado no seu design */
+  height: 80px;
+  margin: 10px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #7c3aed;
+  box-shadow: 0 4px 10px rgba(124, 58, 237, 0.2);
+  background-color: #ffffff;
+}
+
+.eco-avatar-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que o vídeo ou imagem preencham o círculo perfeitamente */
+}

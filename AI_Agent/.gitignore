@@ -1,0 +1,30 @@
+# Chaves de API e Variáveis de Ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Pastas de Dependências e Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+
+# Dependências do Node (caso usem JavaScript na IA)
+node_modules/
+npm-debug.log*
+
+# Arquivos do Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# remover prompt da IA
+contexto_echo.txt

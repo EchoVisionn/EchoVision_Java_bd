@@ -198,6 +198,75 @@ body.dark-mode nav a.active::after {
   box-shadow: 0 0 8px rgba(219, 70, 239, 0.8);
 }
 
+.profile-dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-btn-profile {
+  font-size: 1.2rem;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.icon-btn-profile.user-logged {
+  color: #7c3aed;
+}
+
+.header-dropdown-box {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e9d5ff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+  padding: 8px 0;
+  width: 180px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-box-title {
+  padding: 4px 14px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #c084fc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.header-dropdown-box button {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 8px 14px;
+  font-size: 13px;
+  color: #4b5563;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.header-dropdown-box button:hover {
+  background-color: #f3e8ff;
+  color: #7c3aed;
+}
+
+.header-dropdown-box hr {
+  border: 0;
+  border-top: 1px solid #f3e8ff;
+  margin: 4px 0;
+}
+
+.header-dropdown-box .dropdown-box-logout:hover {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+
 @media (max-width: 1024px) {
   header {
     padding: 0 24px;
