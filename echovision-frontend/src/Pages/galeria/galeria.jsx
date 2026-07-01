@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom'; // ◄ ADICIONADO: Para controle
 import imgScream from '../../assets/imagens/Scream.jpg';
 import imgStarry from '../../assets/imagens/Starry_Night.jpg';
 import imgIndependencia from '../../assets/imagens/Independência_ou_Morte.jpg';
+import audioScream from '../../assets/audios/Scream.mpeg?url';
+import audioStarry from '../../assets/audios/Starry.mpeg?url';
+import audioIndependencia from '../../assets/audios/independencia.mpeg?url';
 
 const artworks = [
   {
@@ -14,7 +17,7 @@ const artworks = [
     desc: "Uma expressão profunda de ansiedade e emoção humana.",
     badge: "ÁUDIO 3D",
     img: imgScream, 
-    audioSrc: "/assets/audios/Scream.mpeg" 
+    audioSrc: audioScream
   },
   {
     id: 2,
@@ -23,7 +26,7 @@ const artworks = [
     desc: "Uma representação vibrante e dinâmica da vista noturna.",
     badge: "IMERSIVO",
     img: imgStarry, 
-    audioSrc: "/assets/audios/Starry.mpeg"
+    audioSrc: audioStarry
   },
   {
     id: 3,
@@ -32,7 +35,7 @@ const artworks = [
     desc: "A icônica representação do momento histórico do Brasil.",
     badge: "EXPERIÊNCIA",
     img: imgIndependencia, 
-    audioSrc: "/assets/audios/independencia.mpeg"
+    audioSrc: audioIndependencia
   }
 ];
 
