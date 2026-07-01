@@ -65,7 +65,7 @@ function Header() {
           <ul>
             <li><NavLink to="/inicio" onClick={closeMenu}>Início</NavLink></li>
             <li><NavLink to="/eco" onClick={closeMenu}>ECO IA</NavLink></li>
-            <li><NavLink to="/arena" onClick={closeMenu}>Arena</NavLink></li>
+            <li><NavLink to="/arena" onClick={closeMenu}>Eventos</NavLink></li>
             <li><NavLink to="/galeria" onClick={closeMenu}>Galeria</NavLink></li>
             <li><NavLink to="/cadastro-empresa" onClick={closeMenu}>Seja Parceiro B2B</NavLink></li>
             {/* Link Externo do Sobre */}
@@ -124,7 +124,7 @@ function Header() {
           <ul>
             <li><NavLink to="/inicio" onClick={closeMenu}>Início</NavLink></li>
             <li><NavLink to="/eco" onClick={closeMenu}>ECO IA</NavLink></li>
-            <li><NavLink to="/arena" onClick={closeMenu}>Arena</NavLink></li>
+            <li><NavLink to="/arena" onClick={closeMenu}>Eventos</NavLink></li>
             <li><NavLink to="/galeria" onClick={closeMenu}>Galeria</NavLink></li>
             <li><NavLink to="/cadastro-empresa" onClick={closeMenu}>Seja Parceiro B2B</NavLink></li>
             <li>

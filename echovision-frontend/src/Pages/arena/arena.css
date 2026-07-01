@@ -64,34 +64,23 @@
 /* LIVE CARD */
 .card-live {
   background: white;
-  max-width: 650px;
+  max-width: 760px;
   margin: 0 auto;
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(36, 19, 71, 0.12);
   text-align: left;
+  cursor: pointer;
 }
 
 .card-live-header {
-  background-color: #7637aa;
-  padding: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  color: white;
-  font-size: 22px;
-  font-weight: 800;
+  height: 280px;
 }
 
-.escudo-placeholder {
-  width: 65px;
-  height: 65px;
-}
-
-.escudo-placeholder img {
-  width: 100%; height: 100%;
-  object-fit: contain;
+.card-live-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-live-body {
@@ -99,14 +88,20 @@
 }
 
 .card-live-body h3 {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
   color: #1a1a1a;
 }
 
 .card-live-body p {
   margin-bottom: 8px;
   color: #333;
+}
+
+.card-live-description {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 14px 0 20px;
 }
 
 /* GRID */
@@ -140,12 +135,18 @@
 }
 
 .card-arena-overlay {
-  position: absolute; inset: 0;
-  background: rgba(0,0,0,0.35);
-  display: flex; align-items: center; justify-content: center;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(63, 19, 118, 0.05), rgba(8, 3, 20, 0.6));
+  display: flex;
+  align-items: end;
+  justify-content: start;
   color: white;
-  font-size: 2.2rem;
-  font-weight: 800;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px;
 }
 
 .card-arena-info {
@@ -155,7 +156,7 @@
 .card-arena-info h4 {
   color: #1a1a1a;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .card-arena-info .campeonato {
@@ -164,6 +165,13 @@
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 4px;
+}
+
+.event-location-card {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: #726a87;
 }
 
 .card-arena-action {
@@ -192,41 +200,108 @@
 
 .btn-primary:hover { background-color: #441d64; }
 
-/* BACK BUTTON */
-.btn-voltar {
-  text-decoration: none;
-  display: inline-flex;
+/* MODAL */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 6, 20, 0.72);
+  display: flex;
   align-items: center;
-  gap: 8px;
-  background: transparent;
-  color: #51486b;
-  border: 2px solid rgba(140, 90, 180, 0.3);
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: min(700px, 100%);
+  background: #f9f7ff;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 80px rgba(20, 10, 30, 0.45);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: rgba(16, 14, 25, 0.5);
+  color: #fff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-bottom: 20px;
+  z-index: 2;
 }
 
-.btn-voltar:hover {
-  background: linear-gradient(135deg, #8e2de2, #ff4ecd);
-  color: white;
-  border-color: transparent;
-  transform: translateX(-4px);
+.modal-image {
+  height: 260px;
+  background-size: cover;
+  background-position: center;
 }
 
-/* VIDEO */
-.videoplayer {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+.modal-body {
+  padding: 28px;
+}
+
+.modal-category {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #efe7fb;
+  color: #7637aa;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.modal-body h3 {
+  font-size: 1.8rem;
+  color: #1a0933;
+  margin-bottom: 16px;
+}
+
+.modal-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.modal-meta div,
+.modal-location {
+  background: #f2edfb;
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.meta-label {
   display: block;
-  margin: 40px auto;
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #8d7db0;
+  margin-bottom: 6px;
+}
+
+.modal-location span:last-child,
+.modal-meta span:last-child {
+  color: #2d2346;
+  font-weight: 600;
+}
+
+.modal-description {
+  margin-top: 16px;
+  color: #4c4364;
+  line-height: 1.7;
 }
 
 body.dark-mode .arena-section h1,
@@ -239,30 +314,36 @@ body.dark-mode .subtitle {
 }
 
 body.dark-mode .card-live,
-body.dark-mode .card-arena {
+body.dark-mode .card-arena,
+body.dark-mode .modal-content {
   background: #161224 !important;
   border: 1px solid rgba(168, 85, 247, 0.2) !important;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45) !important;
 }
 
 body.dark-mode .card-live-body h3,
-body.dark-mode .card-arena-info h4 {
+body.dark-mode .card-arena-info h4,
+body.dark-mode .modal-body h3 {
   color: #ffffff !important;
 }
 
 body.dark-mode .card-live-body p,
-body.dark-mode .card-arena-info .campeonato {
+body.dark-mode .card-arena-info .campeonato,
+body.dark-mode .event-location-card,
+body.dark-mode .modal-description,
+body.dark-mode .modal-location span:last-child,
+body.dark-mode .modal-meta span:last-child {
   color: #bfaecf !important;
 }
 
-body.dark-mode .btn-voltar {
-  color: #f5f3f7 !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+body.dark-mode .modal-category,
+body.dark-mode .modal-meta div,
+body.dark-mode .modal-location {
+  background: #241a39 !important;
 }
 
-body.dark-mode .btn-voltar:hover {
-  background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
-  color: white !important;
+body.dark-mode .meta-label {
+  color: #8c79b8 !important;
 }
 
 @media (max-width: 768px) {
@@ -280,13 +361,16 @@ body.dark-mode .btn-voltar:hover {
   }
 
   .card-live-header {
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px;
+    height: 220px;
   }
 
   .card-live-body {
     padding: 22px;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
   }
 }
 
@@ -295,9 +379,12 @@ body.dark-mode .btn-voltar:hover {
     padding: 28px 12px;
   }
 
-  .btn-voltar,
   .btn-primary {
     width: 100%;
     justify-content: center;
+  }
+
+  .modal-meta {
+    grid-template-columns: 1fr;
   }
 }

@@ -18,7 +18,7 @@ function Footer() {
           <h3>NAVEGAÇÃO</h3>
           <ul>
             <li><a href="/">Início</a></li>
-            <li><a href="/arena">Arena</a></li>
+            <li><a href="/arena">Eventos</a></li>
             <li><a href="/sobre">Sobre</a></li>
           </ul>
         </div>
