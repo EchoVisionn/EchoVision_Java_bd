@@ -89,10 +89,23 @@
   font-size: 1.05rem;
 }
 
+.accessibility-card h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
 .accessibility-card p {
   margin: 0;
   color: #5e5b6f;
   line-height: 1.55;
+}
+
+.accessibility-voice-nav {
+  border-top: 1px solid rgba(168, 85, 247, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 14px;
 }
 
 .accessibility-actions,

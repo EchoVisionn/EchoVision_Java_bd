@@ -180,6 +180,7 @@ function EventCard({ event, onOpen }) {
 }
 
 export default function Arena() {
+  const navigate = useNavigate();
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   const featuredEvent = events[0];

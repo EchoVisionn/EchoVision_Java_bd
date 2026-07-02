@@ -147,6 +147,8 @@ export default function Galeria() {
                     onClick={() => handlePlayPause(artwork)}
                     aria-pressed={isCurrentPlaying}
                     aria-label={isCurrentPlaying ? `Pausar experiência da obra ${artwork.title}` : `Ouvir experiência da obra ${artwork.title}`}
+                    data-voice-action={isCurrentPlaying ? 'pause-audio' : 'play-audio'}
+                    data-voice-title={artwork.title}
                   >
                     <span className={isCurrentPlaying ? "pause-icon" : "play-icon"}></span>
                     <span className="btn-text">
